@@ -1,10 +1,13 @@
-<h1>Chapters</h1>
-<ul>
-  <% @chapters.each do |chapter|%>
-    <li><%= link_to chapter.name, chapter_path(chapter)%></li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Chapters</h1>
+  <ul>
+    <% @chapters.each do |chapter|%>
+      <li><%= link_to chapter.name, chapter_path(chapter)%></li>
+    <% end %>
+  </ul>
 
-<%= link_to "New Chapter", new_chapter_path %>
-<br>
-<button type="button" class="btn btn-danger" name="button">test</button>
+  <%= link_to "New Chapter", new_chapter_path %>
+  <br>
+  <button type="button" class="btn btn-danger" name="button">test</button>
+
+</div>
