@@ -6,7 +6,7 @@
   <ul>
     <% @chapter.sections.each do |section|%>
       <li>
-        <%= section.name %> |
+        <%= link_to section.name, chapter_section_path(section)%> |
         <%= link_to "Edit Section", edit_chapter_section_path(@chapter, section) %> |
         <%= link_to "Delete Section", chapter_section_path(@chapter, section),
         :data => {:confirm => "Are you sure?", :method => "delete"} %>

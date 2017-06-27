@@ -4,6 +4,11 @@ class SectionsController < ApplicationController
     @section = @chapter.sections.new
   end
 
+  def show
+    @section = Section.find(params[:id])
+  end
+
+
   def create
     @chapter = Chapter.find(params[:chapter_id])
     @section = @chapter.sections.new(section_params)
@@ -38,6 +43,6 @@ class SectionsController < ApplicationController
 
   private
     def section_params
-      params.require(:section).permit(:name, :done)
+      params.require(:section).permit(:name)
     end
 end
