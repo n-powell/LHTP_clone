@@ -1,0 +1,8 @@
+<%= render 'layouts/errors', :object => @section %>
+
+<%= form_for [@chapter, @section] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br><br>
+  <p><%= f.submit %></p>
+<% end %>

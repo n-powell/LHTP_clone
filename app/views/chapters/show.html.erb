@@ -1,0 +1,37 @@
+<h1><%= @chapter.name %></h1>
+
+<% if @chapter.sections.any? %>
+  <h4>Here are the sections for this chapter:</h4>
+
+  <ul>
+    <% @chapter.sections.each do |section|%>
+      <li>
+        <%= section.name %> |
+        <%= link_to "Edit Section", edit_chapter_section_path(@chapter, section) %> |
+        <%= link_to "Delete Section", chapter_section_path(@chapter, section),
+        :data => {:confirm => "Are you sure?", :method => "delete"} %>
+
+        <br>
+
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no sections yet!</p>
+<% end %>
+
+
+<p><%= link_to "Add A Section", new_chapter_section_path(@chapter) %></p>
+
+<p><%= link_to "Edit chapter", edit_chapter_path(@chapter) %></p>
+<p><%= link_to "Delete chapter", chapter_path(@chapter),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"} %></p>
+
+
+
+
+<p>
+  <%= link_to "Return to chapters", chapters_path %>
+</p>
+<br>
