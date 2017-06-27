@@ -15,6 +15,7 @@ class ChaptersController < ApplicationController
   def create
     @chapter = Chapter.new(chapter_params)
     if @chapter.save
+      flash[:notice] = "Chapter was successfully added!"
       redirect_to  chapters_path
     else
       render :new
@@ -28,6 +29,7 @@ class ChaptersController < ApplicationController
   def update
     @chapter= Chapter.find(params[:id])
     if @chapter.update(chapter_params)
+      flash[:notice] = "Chapter was successfully edited!"
       redirect_to chapters_path
     else
       render :edit
